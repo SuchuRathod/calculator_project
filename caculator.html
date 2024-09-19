@@ -1,0 +1,132 @@
+<!doctype html5>
+<html>
+
+<head>
+    <title>Calculator</title>
+    <!-- <link rel="stylesheet" src="cl.css"> -->
+    <style>
+        div {
+            background-color: rgb(79, 82, 82);
+            width: 213px;
+            padding: 10px;
+            box-shadow: 0px 0px 10px black;
+            margin-left: 40%;
+            margin-top: 100px;
+            border-radius: 15px;
+            border: 1px solid lightskyblue;
+        }
+
+        #place {
+            background-color: white;
+            color: black;
+            border-radius: 10px;
+            height: 50px;
+            width: 215px;
+            border: 3px solid lightslategray;
+            box-shadow: 0px 0px 3px;
+            margin-bottom: -5px;
+            font-size: larger;
+        }
+
+        .button {
+            width: 50px;
+            height: 50px;
+            border: 2px solid;
+            margin-bottom: 5px;
+            font-size: larger;
+            border-radius: 50%;
+            box-shadow: 0px 0px 3px;
+        }
+
+        #m {
+            width: 104px;
+            height: 50px;
+            border: 2px solid;
+            font-size: larger;
+            border-radius: 50px;
+            background-color: cornflowerblue;
+            box-shadow: 0px 0px 3px;
+        }
+
+        .button:hover {
+            box-shadow: 0px 0px 5px lightcyan;
+            border: 1px solid lightcyan;
+            color: white;
+        }
+
+        #m:hover {
+            box-shadow: 0px 0px 5px lightcyan;
+            border: 1px solid lightcyan;
+            color: white;
+        }
+
+        .color {
+            background-color: rgba(128, 128, 128, 0.663);
+        }
+
+        .sign {
+            background-color: hsl(23, 96%, 62%);
+        }
+
+        body {
+            background-color: lightskyblue;
+        }
+
+        .col {
+            background-color: rgba(211, 211, 211, 0.881);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <input type="text" id="place" value="" disabled><br><br>
+
+        <input id="m" type="button" value="AC" onclick="clearexp()">
+        <input class="button col" type="button" value="DEL" onclick="delex()">
+        <input class="button sign" type="button" value="/" onclick="expresion(this.value)"><br>
+
+        <input class="button color" type="button" value="1" onclick="expresion(this.value)">
+        <input class="button color" type="button" value="2" onclick="expresion(this.value)">
+
+        <input class="button color" type="button" value="3" onclick="expresion(this.value)">
+        <input class="button sign" type="button" value="*" onclick="expresion(this.value)"><br>
+
+        <input class="button color" type="button" value="4" onclick="expresion(this.value)">
+        <input class="button color" type="button" value="5" onclick="expresion(this.value)">
+        <input class="button color" type="button" value="6" onclick="expresion(this.value)">
+        <input class="button sign" type="button" value="+" onclick="expresion(this.value)"><br>
+
+        <input class="button color" type="button" value="7" onclick="expresion(this.value)">
+        <input class="button color" type="button" value="8" onclick="expresion(this.value)">
+        <input class="button color" type="button" value="9" onclick="expresion(this.value)">
+        <input class="button sign" type="button" value="-" onclick="expresion(this.value)"><br>
+
+        <input class="button col" type="button" value="." onclick="expresion(this.value)">
+        <input class="button color" type="button" value="0" onclick="expresion(this.value)">
+        <input id="m" class="sign" type="button" value="=" onclick="equal()">
+    </div>
+
+    <script type="text/javascript">
+        var name = document.getElementById("place").value;
+        function expresion(button) {
+            name = name + button;
+            document.getElementById("place").value = name;
+        }
+        function equal() {
+            name = eval(name);
+            document.getElementById("place").value = name;
+        }
+        function clearexp() {
+            name = "";
+            document.getElementById("place").value = name;
+        }
+        function delex() {
+            name = name.slice(0, name.length - 1)
+            document.getElementById("place").value = name;
+        }
+    </script>
+
+</body>
+
+</html>
